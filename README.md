@@ -1,5 +1,7 @@
 #  Sistema de Trava Elétrica com RFID e Arduino 
 
+![trava elétrica](Trava-elétrica-com-RFID-e-Arduino-Uno-1.jpg)
+
 
 # Descrição:
 O projeto consiste em acionar a trava elétrica ao aproximar o chaveiro do módulo RFID. Quando aproximamos o chaveiro do RFID a trava será acionada e o LED amarelo acenderá, indicando que a porta está aberta.
@@ -22,4 +24,5 @@ Quando aproximarmos o cartão do RFID, o buzzer emitirá um som e o LED vermelho
 
 # Créditos
 http://blog.baudaeletronica.com.br/trava-eletrica-com-rfid-e-arduino/
-#Adaptado por Victor Henrique Siqueira.
+
+# Adaptado por Victor Henrique Siqueira.
