@@ -1,0 +1,55 @@
+ //Programando Trava Elétrica com RFID e Arduino
+// Autor: Baú da Eletrônica
+// Adaptado por Victor Henrique Siqueira
+ 
+#include <RFID.h>
+#include <SPI.h>
+ 
+RFID rfid(10, 9);
+ 
+int ledamar = 2;
+int rele = 3;
+int ledverm = 6;
+int buzzer = 7;
+ 
+ 
+ 
+void setup()
+{
+  SPI.begin();
+  rfid.init();
+  pinMode (rele,OUTPUT);
+  pinMode (ledverm, OUTPUT);  
+  pinMode (ledamar, OUTPUT);
+  pinMode (buzzer, OUTPUT);      
+}
+ 
+void loop()
+ 
+{
+digitalWrite (rele,HIGH);
+if (rfid.isCard()){
+if (rfid.readCardSerial()) {
+   
+if (rfid.serNum[0]== 100 && rfid.serNum[1]==164 && rfid.serNum[2]==38 && rfid.serNum[3]==111 && rfid.serNum[4]==137)
+{
+digitalWrite (ledamar,HIGH);            
+digitalWrite (rele,LOW);
+delay (2000);
+digitalWrite (rele,HIGH);
+digitalWrite (ledamar,LOW);
+          
+ }
+ 
+else{
+digitalWrite (ledverm,HIGH);
+tone (buzzer,440);
+delay (3000);
+noTone (buzzer);
+digitalWrite (ledverm,LOW); 
+}
+        
+}
+}
+rfid.halt(); 
+}
